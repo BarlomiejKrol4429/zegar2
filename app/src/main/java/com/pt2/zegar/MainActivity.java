@@ -12,11 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-    private TextView zegar;
-    private Button start;
-    private Button stop;
-    private Button reset;
-    private boolean czyAktywny;
+    Button button1, button2;
+    Gracz gracz1, gracz2;
     private int ileSekund;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,51 +21,37 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        zegar = findViewById(R.id.zegar);
-        start = findViewById(R.id.start);
-        stop = findViewById(R.id.stop);
-        reset = findViewById(R.id.reset);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        gracz1 = new Gracz(button1, true);
+        gracz2 = new Gracz(button2, false);
 
-        Handler handler = new Handler();
-        handler.post(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        if(czyAktywny) {
-                            ileSekund++;
-                            zegar.setText(zwrocLadnyCzas(ileSekund));
-                        }
-                        handler.postDelayed(this, 1000);
-                    }
-                }
-        );
-
-        start.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        czyAktywny = true;
-                    }
-                }
-        );
-        stop.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        czyAktywny = false;
-                    }
-                }
-        );
-        reset.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        czyAktywny = false;
-                        ileSekund = 0;
-                        zegar.setText("00:00:00");
-                    }
-                }
-        );
+        //start.setOnClickListener(
+        //        new View.OnClickListener() {
+        //            @Override
+        //            public void onClick(View view) {
+        //                czyAktywny = true;
+        //            }
+        //        }
+        //);
+        //stop.setOnClickListener(
+        //        new View.OnClickListener() {
+        //            @Override
+        //            public void onClick(View view) {
+        //               czyAktywny = false;
+        //            }
+        //        }
+        //);
+        //reset.setOnClickListener(
+        //        new View.OnClickListener() {
+        //            @Override
+        //            public void onClick(View view) {
+        //                czyAktywny = false;
+        //              ileSekund = 0;
+        //                zegar.setText("00:00:00");
+        //            }
+        //        }
+        //);
     }
     private String zwrocLadnyCzas(int ileSekund){
         int sekundy = ileSekund % 60;

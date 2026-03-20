@@ -5,11 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/gracz1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -17,7 +17,7 @@
         android:text="gracz1"
         android:textSize="48sp"/>
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/gracz2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
