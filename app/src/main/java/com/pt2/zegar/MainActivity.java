@@ -26,6 +26,25 @@ public class MainActivity extends AppCompatActivity {
         gracz1 = new Gracz(button1, true);
         gracz2 = new Gracz(button2, false);
 
+        button1.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        gracz1.odwrocAktywnosc();
+                        gracz2.odwrocAktywnosc();
+                    }
+                }
+        );
+        button2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        gracz1.odwrocAktywnosc();
+                        gracz2.odwrocAktywnosc();
+                    }
+                }
+        );
+
         //start.setOnClickListener(
         //        new View.OnClickListener() {
         //            @Override
